@@ -1,4 +1,4 @@
-# gamz-skillsystem
+# qb-skillz converted from gamz-skillsystem by AJ months ago fixed it up for the updates 
 
 ### [ What is this? ]
 - A skillsystem based on GTA's existing skills.
@@ -13,23 +13,23 @@
 
 ### [ Installation ]
 - Download the resource and drop it to your resource folder.
-- Add ``start gamz-skillsystem`` to your server.cfg
+- Add ``start qb-skillz`` to your server.cfg
 
 ### [ How do I use it? ]
 - To open the menu you trigger following:
 
 ```lua
-    exports["gamz-skillsystem"]:SkillMenu()
+    exports["qb-skillz"]:SkillMenu()
 ```
 - To Update a skill you do following:
 ```lua
-    exports["gamz-skillsystem"]:UpdateSkill(skill, amount)
+    exports["qb-skillz"]:UpdateSkill(skill, amount)
 ```
   so if you were to add 2% to Stamina you do
 ```lua
-    exports["gamz-skillsystem"]:UpdateSkill("Stamina", 2)
+    exports["qb-skillz"]:UpdateSkill("Stamina", 2)
 ```
 - There is also an export to get the current skill if you were to do something from another script
 ```lua
-    exports["gamz-skillsystem"]:GetCurrentSkill(skill)
+    exports["qb-skillz"]:GetCurrentSkill(skill)
 ```

@@ -1,5 +1,6 @@
+
 FetchSkills = function()
-    ESX.TriggerServerCallback("gamz-skillsystem:fetchStatus", function(data)
+    QBCore.Functions.TriggerCallback("skillsystem:fetchStatus", function(data)
 		if data then
             for status, value in pairs(data) do
                 if Config.Skills[status] then
@@ -11,30 +12,6 @@ FetchSkills = function()
 		end
         RefreshSkills()
     end)
-end
-
-SkillMenu = function()
-    ESX.UI.Menu.CloseAll()
-    local skills = {}
-
-	for type, value in pairs(Config.Skills) do
-		table.insert(skills, {
-			["label"] = type .. ': <span style="color:yellow">' .. value["Current"] .. "</span> %"
-		})
-	end
-
-	ESX.UI.Menu.Open("default", GetCurrentResourceName(), "skill_menu",
-	{
-		["title"] = "Skills",
-		["align"] = "center",
-		["elements"] = skills
-
-	}, function(data, menu)
-	
-        
-	end, function(data, menu)
-		menu.close()
-	end)
 end
 
 GetCurrentSkill = function(skill)
@@ -65,7 +42,7 @@ UpdateSkill = function(skill, amount)
             Notification("~g~+" .. amount .. "% ~s~" .. skill)
         end
     end
-	TriggerServerEvent("gamz-skillsystem:update", json.encode(Config.Skills))
+	TriggerServerEvent("skillsystem:update", json.encode(Config.Skills))
 end
 
 
@@ -78,10 +55,6 @@ RefreshSkills = function()
         
         if value["Stat"] then
             StatSetInt(value["Stat"], round(value["Current"]), true)
-        end
-        
-        if ESX.UI.Menu.IsOpen("default", GetCurrentResourceName(), "skill_menu") then
-            SkillMenu()
         end
     end
 end
