@@ -3,7 +3,7 @@ QBCore.Functions.CreateCallback('skillsystem:fetchStatus', function(source, cb)
      local Player = QBCore.Functions.GetPlayer(source)
  
       if Player then
-            exports.oxmysql:fetch('SELECT skills FROM players WHERE citizenid = @citizenid', {
+          exports.oxmysql.scalar('SELECT skills FROM players WHERE citizenid = @citizenid', {
                 ['@citizenid'] = Player.PlayerData.citizenid
            }, function(status)
                if status ~= nil then
