@@ -1,3 +1,4 @@
+local QBCore = exports['qb-core']:GetCoreObject()
 
 FetchSkills = function()
     QBCore.Functions.TriggerCallback("skillsystem:fetchStatus", function(data)
@@ -9,7 +10,7 @@ FetchSkills = function()
                     print("Removing: " .. status) 
                 end
             end
-		end
+	end
         RefreshSkills()
     end)
 end

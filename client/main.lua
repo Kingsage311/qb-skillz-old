@@ -1,22 +1,21 @@
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
+	Citizen.CreateThread(function()
+		FetchSkills()
 
-Citizen.CreateThread(function()
-	FetchSkills()
+		while true do
+			local seconds = Config.UpdateFrequency * 1000
+			Citizen.Wait(seconds)
 
-	while true do
-		local seconds = Config.UpdateFrequency * 1000
-		Citizen.Wait(seconds)
+			for skill, value in pairs(Config.Skills) do
+				UpdateSkill(skill, value["RemoveAmount"])
+			end
 
-		for skill, value in pairs(Config.Skills) do
-			UpdateSkill(skill, value["RemoveAmount"])
+			TriggerServerEvent("skillsystem:update", json.encode(Config.Skills))
 		end
+	end)
 
-		TriggerServerEvent("skillsystem:update", json.encode(Config.Skills))
-	end
-end)
-
-Citizen.CreateThread(function()
-	while true do
-		
+	Citizen.CreateThread(function()
+		while true do
 			Citizen.Wait(25000)
 			local ped = PlayerPedId()
 			local vehicle = GetVehiclePedIsUsing(ped)
@@ -43,5 +42,6 @@ Citizen.CreateThread(function()
 					UpdateSkill("Driving", 0.1)
 				end
 			end
-	end
+		end
+	end)
 end)
