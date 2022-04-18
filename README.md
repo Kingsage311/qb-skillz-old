@@ -1,4 +1,4 @@
-# ## <h3 align='center'> DO NOT USE! Deprecated Version moved to a new repo so issues can be opened. Most up to date version can be found <a href='https://github.com/Kingsage311/qb-skillz'>here</a></h3>
+### <h3 align='center'> DO NOT USE! Deprecated Version moved to a new repo so issues can be opened. Most up to date version can be found <a href='https://github.com/Kingsage311/qb-skillz'>here</a></h3>
 # qb-skillz converted from gamz-skillsystem by AJ months ago fixed it up for the updates 
 
 ### [ What is this? ]
